@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pykernel-mcp"
-version = "0.1.0"
+version = "0.2.1"
 description = "MCP server providing persistent IPython kernel for executing Python code with numpy, pandas, and matplotlib"
 readme = "README.md"
 requires-python = ">=3.10"
