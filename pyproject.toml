@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "pykernel-mcp"
 version = "0.1.0"
-description = "Python kernel execution via Model Context Protocol"
+description = "MCP server providing persistent IPython kernel for executing Python code with numpy, pandas, and matplotlib"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -25,7 +25,7 @@ dependencies = [
 pykernel-mcp = "pykernel_mcp.server:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/pykernel-mcp"
+Homepage = "https://github.com/DOsinga/pykernel_mcp"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pykernel_mcp"]
