@@ -1,6 +1,7 @@
 #!/usr/bin/env -S uvx --quiet --from mcp --from jupyter-client --from ipykernel python
 # /// script
 # dependencies = [
+#   "pip",
 #   "mcp",
 #   "jupyter-client",
 #   "ipykernel",
@@ -18,7 +19,6 @@ via an isolated IPython kernel process.
 
 import asyncio
 import time
-import base64
 import uuid
 import html
 from typing import Optional
@@ -42,7 +42,7 @@ mcp = FastMCP(
     instructions=(
         "PyKernel allows an agent to run python code in a jupyter kernel without writing "
         "out a python file.\n Use this for quick analysis when the user has not explicitly "
-        "asked to create a python file. Written by Simon de Wit. The kernel persists between "
+        "asked to create a python file. Written by Douwe Osinga. The kernel persists between "
         "calls, but could restart without warning. If that happens, reinitialize it as needed.\n\n"
         "The kernel comes preconfigured with:\n"
         f"{IMPORTS}\n"
@@ -271,7 +271,7 @@ async def execute_python(code: str) -> list[TextContent | EmbeddedResource]:
 @mcp.tool()
 async def install_package(package: str) -> list[TextContent | EmbeddedResource]:
     """Install a Python package in the kernel using pip."""
-    return await execute_python(f"%pip install {package}")
+    return await execute_python(f"%pip install -q {package}")
 
 
 @mcp.tool()
@@ -286,5 +286,9 @@ async def restart_kernel() -> str:
     return f"Kernel restarted. New ID: {state.kernel_id}"
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()

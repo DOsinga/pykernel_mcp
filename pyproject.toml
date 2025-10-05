@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pykernel-mcp"
-version = "0.2.1"
+version = "0.2.5"
 description = "MCP server providing persistent IPython kernel for executing Python code with numpy, pandas, and matplotlib"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,6 +14,7 @@ authors = [
 ]
 dependencies = [
     "mcp>=1.0.0",
+    "pip",
     "jupyter-client>=8.0.0",
     "ipykernel>=6.0.0",
     "numpy>=1.24.0",
@@ -33,5 +34,5 @@ packages = ["src/pykernel_mcp"]
 [tool.hatch.build]
 include = [
     "src/pykernel_mcp/**/*.py",
-    "src/pykernel_mcp/static/*",
+    "src/pykernel_mcp/highlight_js/*",
 ]

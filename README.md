@@ -2,7 +2,6 @@
 
 MCP server to make it possible for an agent to execute python in a Jupyter kernel.
 
-\
 ## Features
 
 PyKernel provides a persistent IPython kernel environment for executing Python code through the Model Context Protocol.
